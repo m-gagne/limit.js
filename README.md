@@ -27,4 +27,4 @@ Each method has its appropriate usage, and only you as the consumer can decide w
 Example
 -------
 
-A functioning example can be found here: http://jsfiddle.net/zR5jV/
+A functioning example can be found here: http://jsfiddle.net/zR5jV/1/
