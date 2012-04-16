@@ -39,7 +39,7 @@ Function.prototype.debounce = function (milliseconds) {
 Function.prototype.throttle = function (milliseconds) {
     var baseFunction = this,
         lastEventTimestamp = null,
-        lastimit = milliseconds;
+        limit = milliseconds;
 
     return function () {
         var self = this,
