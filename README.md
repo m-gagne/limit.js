@@ -1,9 +1,7 @@
 limit.js
 ========
 
-limit.js serves to solve a simple problem, too many events. Sometimes you want to track browser resizing, or mouse movements but you don't need/want every single event (of which there can be thousands). This is where limit can help. 
-
-Limit contains two helpers to solve this problem.
+limit.js serves to solve a simple problem, too many events. Sometimes you want to track browser resizing, or mouse movements but you don't need/want every single event (of which there can be thousands). This is where limit.js can help.
 
 Debounce
 --------
