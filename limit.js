@@ -10,8 +10,11 @@ Function.prototype.debounce = function (milliseconds) {
     var baseFunction = this,
         timer = null,
         wait = milliseconds;
-
-    return function () {
+/**
+ * @param {boolean} force
+ * true value in this param allows run "debounced" function immediately
+ */
+    return function (force) {
         var self = this,
             args = arguments;
 
@@ -23,8 +26,12 @@ Function.prototype.debounce = function (milliseconds) {
         if (timer) {
             clearTimeout(timer);
         }
+        
+        if (force)
+            complete();
+        else
+            timer = setTimeout(complete, wait);
 
-        timer = setTimeout(complete, wait);
     };
 };
 
