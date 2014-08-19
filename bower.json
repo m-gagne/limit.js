@@ -7,9 +7,6 @@
     "Marc Gagne <marc.gagne@hotmail.com>"
   ],
   "description": "limit.js serves to solve a simple problem, too many events. Sometimes you want to track browser resizing, or mouse movements but you don't need/want every single event (of which there can be thousands). This is where limit.js can help.",
-  "moduleType": [
-    "globals"
-  ],
   "keywords": [
     "throttle",
     "debounce",
