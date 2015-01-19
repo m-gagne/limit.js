@@ -32,17 +32,18 @@ Function.prototype.debounce = function (milliseconds) {
 * throttle
 * @param {integer} milliseconds This param indicates the number of milliseconds
 *     to wait between calls before calling the original function.
+* @param {object} What "this" refers to in the returned function.
 * @return {function} This returns a function that when called will wait the
 *     indicated number of milliseconds between calls before
 *     calling the original function.
 */
-Function.prototype.throttle = function (milliseconds) {
+Function.prototype.throttle = function (milliseconds, context) {
     var baseFunction = this,
         lastEventTimestamp = null,
         limit = milliseconds;
 
     return function () {
-        var self = this,
+        var self = context || this,
             args = arguments,
             now = Date.now();
 
