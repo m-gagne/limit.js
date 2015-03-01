@@ -2,22 +2,27 @@
  * debounce
  * @param {integer} milliseconds This param indicates the number of milliseconds
  *     to wait after the last call before calling the original function.
+ * @param {boolean} immediate Pass in true if the function should be called 
+ *     immediately, false for normal behaviour.
  * @param {object} What "this" refers to in the returned function.
  * @return {function} This returns a function that when called will wait the
  *     indicated number of milliseconds after the last call before
  *     calling the original function.
  */
-Function.prototype.debounce = function (milliseconds, context) {
+Function.prototype.debounce = function (milliseconds, immediate, context) {
     var baseFunction = this,
-        timer = null,
-        wait = milliseconds;
-
+        timer = null;
+        
     return function () {
         var self = context || this,
-            args = arguments;
+            args = arguments,
+            invoke = immediate && !timer;
 
         function complete() {
-            baseFunction.apply(self, args);
+            if (!immediate) {
+                baseFunction.apply(self, args);
+            }
+
             timer = null;
         }
 
@@ -25,7 +30,11 @@ Function.prototype.debounce = function (milliseconds, context) {
             clearTimeout(timer);
         }
 
-        timer = setTimeout(complete, wait);
+        timer = setTimeout(complete, milliseconds);
+
+        if (invoke) {
+            baseFunction.apply(self, args);
+        }
     };
 };
 
