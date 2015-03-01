@@ -26,3 +26,8 @@ Example
 -------
 
 A functioning example can be found here: http://jsfiddle.net/CkNxa/
+
+# Install with Bower
+```sh
+bower install limit
+```
